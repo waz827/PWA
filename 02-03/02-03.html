@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="
+        console.log(fnSayHello());
+        console.log('1+2=', fnPlusNumbers(1,2));
+        console.log('2+2=', fnPlusNumbers2(2,2));
+        console.log('3+2=', fnPlusNumbers3(3,2));
+        console.log('4+1=', fnPlusNumbers4(4));
+        " id="clickme">화살표 함수 실행</button>
+    <script>
+        const fnPlusNumbers = function(pNum1, pNum2){
+            return pNum1+pNum2;
+        }
+        const fnPlusNumbers2=(pNum1,pNum2)=>{
+            return pNum1+pNum2;
+        }
+        const fnPlusNumbers3=(pNum1,pNum2)=>pNum1+pNum2;
+        const fnPlusNumbers4=pNum1 => pNum1+1; // 매개변수가 1개일때는 () 생략 가능
+        const fnSayHello=()=>'안녕하세요'; // 화살표 함수안에 매개변수가 없을때는 ()꼭 해주어야 함
+    </script>
+</body>
+</html>

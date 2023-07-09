@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <p>클릭 숫자 {{ nClicks }} </p>
+        <p>카운트 숫자 {{ fnCounter }} </p>
+        <button @click ="fnIncrement">카운트</button>
+        <br>
+        <br>{{ year }}
+        <button @click="plus">더하기</button>
+        <button @click="minus">빼기</button>
+       
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                nClicks: 0,
+                year: 2023
+            },
+            computed:{
+                fnCounter(){
+                    return 10 - this.nClicks;
+                }
+            },
+            methods:{
+                fnIncrement(){
+                    this.nClicks++;
+                },
+                plus(){
+                    return this.year++;
+                },
+                minus(){
+                    return this.year--;
+                }
+                
+            },
+           
+        });
+    </script>
+</body>
+</html>

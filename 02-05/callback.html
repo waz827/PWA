@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="
+        fnProductReady(1,2000, function(pRet){
+            console.log(pRet);
+            fnProductReady(2,1000, function(pRet){
+                console.log(pRet);
+                fnProductReady(3,500, function(pRet){
+                    console.log(pRet);
+                    console.log('가독성이 낮고 유지보수 어려운 콜백 지옥');
+                })
+            })
+        })
+        ">콜백함수 발생</button>
+    <script>
+        // function fnFunctionA(pNumA){
+        //     console.log(pNumA);
+        // }
+        // function fnFunctionB(pNumB, fnCallback){
+        //     fnCallback(pNumB);
+        // }
+        // fnFunctionB("콜백함수 실행", fnFunctionA)
+        function fnProductReady(pNum, pTime, fnCallback){
+            setTimeout(()=>{
+                console.log(pNum)
+                fnCallback('상품이 성공적으로 배송되었습니다.');
+            },pTime)
+        }
+    </script>
+</body>
+</html>

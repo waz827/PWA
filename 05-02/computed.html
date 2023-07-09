@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <p>원본 문장: "{{sOriginalMessage}}"</p>
+        <p>대문자 변환된 문장: "{{fnUpperCaseMsg}}"</p>
+        <p>역순으로 변환된 문장: "{{ reverseMsg }}"</p>
+       
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                sOriginalMessage:'How Are You'
+            },
+            computed:{
+                fnUpperCaseMsg: function(){
+                    return this.sOriginalMessage.toUpperCase()
+                },
+                reverseMsg: function(){
+                    return this.sOriginalMessage.split('').reverse().join('');
+                }
+            },
+            methods:{
+                
+            },
+           
+        });
+    </script>
+</body>
+</html>

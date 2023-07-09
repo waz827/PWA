@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fnDoAsyncFunc()
+        ">async, await: 상품배송시작</button>
+    <script>
+        async function fnDoAsyncFunc(){
+            console.log(await fnProductReady(1,2000));
+            console.log(await fnProductReady(2,1000));
+            console.log(await fnProductReady(3,500));
+            //await는 다음 실행으로 넘어가지않고 결과가 나올때까지 기다린다. 
+            //즉 동기로 처리하도록 지시
+        }
+        function fnProductReady(pNum, pTime){
+            return new Promise((resolve)=>
+            {
+                setTimeout(()=>{
+                    console.log(pNum);
+                    resolve('상품이 정상적으로 배송되었습니다.');
+                },pTime);
+            })
+        }
+    </script>
+    
+</body>
+</html>

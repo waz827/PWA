@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div v-if="show">Yes</div>
+        <button @click="toggleShow">toggle</button>
+        <ol>
+            <li v-for="(F, index) in aPerson">
+                <p>번호: {{index}}</p>
+                <p>이름: {{F.name}}</p>
+                <p>나이: {{F.age}}</p>
+            </li>
+        </ol>
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                show:true,
+                aPerson :[
+                    {
+                        name: '안장훈',
+                        age: 24
+                    },
+                    {
+                        name: '안장훈2',
+                        age: 25
+                    },
+                    {
+                        name: '안장훈3',
+                        age: 26
+                    }
+                ]
+
+                
+            },
+            methods:{
+                toggleShow(){
+                    this.show = !this.show;
+                
+                }
+            },
+           
+        });
+    </script>
+</body>
+</html>

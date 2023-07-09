@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fnMyFunction();
+        // function fnMyFunction(){
+        //     var apple= 5; //var는 함수스코프만 지원함 >> 함수내에서만 사용되는 변수라는 뜻, 함수밖에서는 사용되지 못함.
+        //     console.log(apple);
+        // }
+        // var apple= 3;  // 같은 이름으로 중복 선언 가능하다.
+        // {
+        //     var apple=5; // var 선언 변수는 블록 스코프가 아니므로 재선언 할수 있음.
+        //     console.log(apple);
+        // }
+        // console.log(apple); // 5가 출력
+        //블록스코프 변수 let const
+            let apple =3;
+            console.log(apple); //3출력
+            apple=5; // let 선언 변수는 재할당 허용
+            console.log(apple); // 5출력
+            // let apple=7; //같은이름으로는 중복선언을 허용하지 않음으로 오류발생
+            // const car; // 선언과 동시에 값을 할당하지 않았음으로 오류
+            const carname="하이브리드 "; 
+            console.log(carname); // 하이브리드 출력
+            // carname="디젤"; // const는 불변이므로 오류
+        // console.log(apple); //블록스코프이기때문에 오류
+        // console.log(carname); //블록스코프이기때문에 오류
+    </script>
+</body>
+</html>

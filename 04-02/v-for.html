@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+   
+    <div id="main">
+        <h1>좋아하는 과일</h1>
+        <ol>
+            <li v-for="(F, index) in aFruits">
+                {{index}} ==> {{ F.sFruitName }}의 색은 {{F.color}}
+            </li>
+        </ol>
+        <!-- <ul>
+            <li v-for="A in object">
+                {{A}}
+            </li>
+        </ul> -->
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                aFruits:
+            [
+                {sFruitName:'파인애플', color:'노랑'},
+                {sFruitName:'사과', color:'빨강'},
+                {sFruitName:'바나나', color:'노랑'}
+            ],
+            object:{
+                
+                title:"프로그래시브웹앱",
+                author:'김응석',
+                publisher:'이지퍼블리싱'
+            }
+            },
+            methods:{
+            },
+           
+        });
+    </script>
+</body>
+</html>

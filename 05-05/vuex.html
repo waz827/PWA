@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>안녕하세요</h1>
+        <com-counter msg="카운터 1"></com-counter>
+        <com-counter msg="카운터 2"></com-counter>
+    </div>
+</body>
+<script>
+    const store = new Vuex.Store({
+        state:{
+            count: 0
+        },
+        mutations:{
+            fnIncData: function(state){
+                return state.count++
+            },
+            fnDecData: state => state.count--
+        },
+        getters:{
+            fnGetData(state){
+                return state.count;
+            }
+        },
+        actions:{
+            async fnDecData({commit},state){
+                const result = await api.fnDecrement();
+                if(result == true) commit('fnDecData')
+            }
+        }
+    })
+    const api= {
+        fnDecrement(){
+            return new Promise((resolve)=>{
+                setTimeout(()=>{
+                    resolve(true);
+                },1000);
+            });
+        },
+    };
+
+    Vue.component('com-counter',  {
+        props: ['msg'],
+        template: `
+        <div>
+            <h2>{{ msg }}</h2>
+            <p>counter:{{ fnGetCount }}</p>
+            <button @click="fnIncCount">+1</button>
+            <button @click="fnDecCount">-1(원격 API 실행)</button>
+            <hr>
+        </div>
+        `,
+        computed:{
+            fnGetCount(){
+                return store.getters.fnGetData;;
+            }
+        },
+        methods: {
+            fnIncCount(){
+                store.commit('fnIncData')
+            },
+            fnDecCount(){
+                store.dispatch('fnDecData')
+            }
+        }
+    })
+    var gApp= new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        store
+    })
+</script>
+</html>

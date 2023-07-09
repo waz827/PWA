@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <h1 :style= "{color:colors, fontSize: size}">{{sTitle}}</h1>
+        <button @click="fnChangeTitle">click</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                sTitle:'안녕하세요',
+                sw: false,
+                colors:'red',
+                size:'30px'
+                
+            },
+            methods:{
+                fnChangeTitle(){
+                    this.sw = !this.sw;
+                    if(this.sw)
+                        this.sTitle = 'Hello',
+                        this.colors = 'blue',
+                        this.size='15px'
+                    else
+                        this.sTitle= '안녕하세요',
+                        this.colors = 'red',
+                        this.size='30px'
+                }
+            }
+           
+        });
+    </script>
+</body>
+</html>

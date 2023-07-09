@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <word-relay start-word="한국"></word-relay>
+        <word-relay start-word="아이티"></word-relay>
+        <word-relay start-word="학교"></word-relay>
+    </div>
+
+<script>
+    Vue.component('word-relay',{
+        data(){
+            return {
+                word: this.startWord, 
+                value: '',
+                result: ''
+            }
+        },
+        props: ['start-word'],
+        methods: {
+            onSubmitForm(e){
+                e.preventDefault();
+                if( this.word[this.word.length-1] === this.value[0]){
+                    this.result = '정답';
+                    this.word = this.value;
+                    this.value = '';
+                    this.$refs.answer.focus();
+                }
+                else{
+                    this.result = '오답';
+                    this.value = '';
+                    this.$refs.answer.focus();
+                }
+            }
+        },
+        template:
+        `
+        <div>
+        <div> {{word}} </div>
+        <form v-on:submit="onSubmitForm">
+            <input type="text" ref="answer" v-model="value">
+            <button type="submit">입력!</button>
+        </form>
+        <div> {{ result }}</div>
+        </div>
+        `
+    })
+    
+    new Vue({
+        el: "#root",
+        data:{
+        },
+        methods:{
+        }
+    })
+</script>
+</body>
+
+</html>

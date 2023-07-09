@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="main">
+        <p>{{sMsg}}</p>
+        <input v-model:value="sMsg">
+    </div>
+    <script>
+        var main= new Vue({
+            el: '#main',
+            data:{
+                sMsg:'안녕하세요'
+            },
+            method:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

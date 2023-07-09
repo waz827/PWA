@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <!-- <h1>{{ grade }}</h1> -->
+        <!-- <p v-if="bFlag==true">앞면<p v-else>뒷면</p> -->
+        <div v-if="grade === 'A'">90점 이상</div>
+        <div v-else-if="grade === 'C'">70점 이상</div>
+        <div v-else>60점 미만</div>
+    </div>
+    <script>
+        new Vue({
+            el:'#main',
+            data:{
+                // bFlag: Math.random() >0.5 
+                grade: 'A'
+            },
+            methods:{
+
+            }
+        });
+    </script>
+    
+</body>
+</html>

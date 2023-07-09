@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="main">
+        <ul v-for="(item, index) in aPerson">
+            <li>
+                <p>번호: {{ index }}</p>
+                <p>이름: {{ item.name }}</p>
+                <p>나이: {{ item.age }}</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let a= new Vue({
+            el: '#main',
+            data: {
+                aPerson:[
+                    {name: '홍', age: 15},
+                    {name: '길', age: 16},
+                    {name: '동', age: 17}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="main">
+        <p>원본 문장: "{{sOriginalMessage}}"</p>
+        <p>대문자로 변환된 문장: "{{fnUpperCaseMsg}}"</p>
+    </div>
+    <script>
+        let app= new Vue({
+            el: '#main',
+            data:{
+                sOriginalMessage: 'How are You'
+            },
+            computed:{
+                fnUpperCaseMsg: function(){
+                    return this.sOriginalMessage.toUpperCase();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fnSayhello()">눌러보세요</button>
+    <button onclick="console.log(fnMinusNumbers(5,3))">5-3=?</button>
+    <script>
+        function fnSayhello(){
+            alert("안녕하세요");
+        }
+        const fnMinusNumbers= function(pNum1, pNum2){
+            return pNum1-pNum2;
+        }
+        fnSayhello1();
+        function fnSayhello1(){
+            console.log('안녕하세요 1');
+        }
+        // fnSayhello2();
+        const fnSayhello2= function(){
+            console.log('안녕하세요2');
+        }
+        fnSayhello2();
+        
+    </script>
+</body>
+</html>

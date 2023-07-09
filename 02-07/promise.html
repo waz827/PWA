@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function RequestData(){
+            return Math.random()>0.5;
+        }
+        const oProductReady= new Promise(function(fnResolve, fnReject){
+            let bStatus= RequestData();
+            if(bStatus){
+                fnResolve('상품이 정상적으로 배송되었습니다.');
+            }
+            else{
+                fnReject('상품이 준비중입니다.');
+            }
+        });
+        oProductReady.then(function(pRequest){
+            console.log(pRequest);
+        }, function(pErrMsg){
+            console.log(pErrMsg);
+        });;
+    </script>
+</body>
+</html>
